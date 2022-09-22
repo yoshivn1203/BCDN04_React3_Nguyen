@@ -14,8 +14,8 @@ function App() {
 
   return (
     <>
-      <Header />
       {isModalOpen && <Modal modalData={modalData} setIsModalOpen={setIsModalOpen} />}
+      <Header />
       <ShoeList showDetail={handleShowDetail} />
     </>
   );

@@ -5,7 +5,7 @@ const Modal = ({ modalData, setIsModalOpen }) => {
   return (
     <>
       <div className='backdrop' onClick={() => setIsModalOpen(false)} />
-      <div className='modal'>
+      <section className='modal'>
         <div className='card'>
           <p className='header'>Shoe infomation</p>
           <div className='card-body'>
@@ -33,7 +33,7 @@ const Modal = ({ modalData, setIsModalOpen }) => {
             </article>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
