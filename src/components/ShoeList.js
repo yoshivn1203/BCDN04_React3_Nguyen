@@ -1,9 +1,10 @@
 import React from 'react';
+import data from '../data/shoesData.json';
 
 const ShoeList = (props) => {
   return (
     <div className='shoe-container'>
-      {props.data.map((shoe) => {
+      {data.map((shoe) => {
         const { id, image, name, price } = shoe;
         return (
           <div key={id} className='card'>
