@@ -1,13 +1,166 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.banner {
+  background-color: rgba(0, 0, 0, 0.514);
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  color: white;
+}
+
+.shoe-container {
+  width: 90vw;
+  max-width: 1370px;
+  margin: 5rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-items: center;
+  gap: 2rem;
+}
+
+.card {
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+}
+
+.card img {
+  background-size: cover;
+  height: 18rem;
+  width: 100%;
+}
+
+.card h4:nth-child(2) {
+  color: brown;
+}
+.short-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+button {
+  font: inherit;
+  border: 1px solid rgb(255, 148, 26);
+  border-radius: 5px;
+  background: rgb(255, 148, 26);
+  color: black;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+}
+
+button:hover,
+.button:active {
+  background: rgb(253, 171, 78);
+  border-color: rgb(253, 171, 78);
+}
+
+button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 800px) {
+  .shoe-container {
+    width: 95vw;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  top: 5vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  animation: slide-down 400ms ease-out forwards;
+}
+
+.modal .header {
+  font-size: 1.5rem;
+  color: brown;
+  border-bottom: solid 2px brown;
+}
+
+.card-body {
+  display: grid;
+  column-gap: 2rem;
+  padding-top: 1rem;
+}
+
+.long-info {
+  position: relative;
+}
+
+.long-info h3 {
+  color: brown;
+}
+
+.long-info ol {
+  list-style-type: disc;
+  padding: 2rem 1rem;
+}
+
+.long-info button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: brown;
+  color: white;
+}
+
+.long-info button:hover {
+  background-color: rgb(179, 82, 82);
+}
+
+@media (min-width: 576px) {
+  .modal {
+    left: calc(50% - 20rem);
+    top: 10vh;
+    width: 40rem;
+  }
+  .card-body {
+    grid-template-columns: auto 1fr;
+  }
+
+  .long-info ol {
+    padding: 3rem 0;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

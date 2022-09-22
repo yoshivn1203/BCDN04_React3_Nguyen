@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import data from './shoesData.json';
+import Header from './components/Header';
+import Modal from './components/Modal';
+import ShoeList from './components/ShoeList';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState('');
+
+  const handleShowDetail = (shoe) => {
+    setModalData(shoe);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      {isModalOpen && <Modal modalData={modalData} setIsModalOpen={setIsModalOpen} />}
+      <ShoeList data={data} showDetail={handleShowDetail} />
+    </>
   );
 }
 
